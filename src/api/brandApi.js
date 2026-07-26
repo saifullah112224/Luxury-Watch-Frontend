@@ -1,5 +1,5 @@
 import axios from "axios";
 
-const API = "http://localhost:5000/api/brands";
+baseURL: "https://luxury-watch-backend-production.up.railway.app/api";
 
 export const getBrands = () => axios.get(API);
