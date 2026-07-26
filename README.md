@@ -1,3 +1,14 @@
+# 🌐 Live Demo
+
+🔗 Website: luxurywatchstoress.vercel.app
+
+## Frontend Repository
+https://github.com/saifullah112224/Luxury-Watch-Frontend
+
+## Backend Repository
+https://github.com/saifullahali11253-lgtm/luxury-watch-backend
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
