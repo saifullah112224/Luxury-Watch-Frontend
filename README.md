@@ -1,6 +1,6 @@
 # 🌐 Live Demo
 
-🔗 Website: luxurywatchstoress.vercel.app
+🔗 Website:https://luxurywatchstoress.vercel.app/
 
 ## Frontend Repository
 https://github.com/saifullah112224/Luxury-Watch-Frontend
