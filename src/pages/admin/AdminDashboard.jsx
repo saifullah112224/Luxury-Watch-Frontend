@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaBoxOpen,
   FaUsers,
@@ -13,11 +13,19 @@ import { getDashboard } from "../../api/adminApi";
 
 function AdminDashboard() {
   const [dashboard, setDashboard] = useState(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    loadDashboard();
-  }, []);
+useEffect(() => {
+  const isAdmin = localStorage.getItem("isAdmin");
 
+  if (!isAdmin) {
+    alert("Please login as Admin.");
+    navigate("/login");
+    return;
+  }
+
+  loadDashboard();
+}, [navigate]);
   const loadDashboard = async () => {
     try {
       const res = await getDashboard();
@@ -50,6 +58,19 @@ function AdminDashboard() {
           <h1 className="text-5xl font-bold text-yellow-400 text-center mb-14">
             Admin Dashboard
           </h1>
+
+          <div className="flex justify-end mb-8">
+  <button
+    onClick={() => {
+      localStorage.removeItem("isAdmin");
+      localStorage.removeItem("adminEmail");
+      navigate("/");
+    }}
+    className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-xl font-bold"
+  >
+    Logout
+  </button>
+</div>
 
           {/* Admin Navigation */}
 

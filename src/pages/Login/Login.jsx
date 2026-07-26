@@ -24,6 +24,21 @@ function Login() {
 const handleLogin = async (e) => {
   e.preventDefault();
 
+  // Demo Admin Login
+  if (
+    form.email === "admin@timeluxe.com" &&
+    form.password === "admin123"
+  ) {
+    localStorage.setItem("isAdmin", "true");
+    localStorage.setItem("adminEmail", form.email);
+
+    alert("Admin Login Successful!");
+
+    navigate("/admin");
+    return;
+  }
+
+  // Customer Login (Supabase)
   const { data, error } = await supabase.auth.signInWithPassword({
     email: form.email,
     password: form.password,
@@ -58,7 +73,6 @@ const handleLogin = async (e) => {
 
   navigate("/");
 };
-
   return (
     <>
       <Navbar />
